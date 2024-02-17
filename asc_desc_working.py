@@ -10,7 +10,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-def calculate_and_plot(file_path_radiation_asc, file_path_humidity_asc, file_path_radiation_desc, file_path_humidity_desc):
+def calculate_and_plot(file_path_radiation_asc, file_path_radiation_desc):
     # Function to load and process data
 
 
@@ -103,10 +103,12 @@ def process_data(file_path_radiation):
     return radiation_avg, humidity_avg, mid_points, data['Date/Time'].iloc[0], data['Date/Time'].iloc[-1]
 
 
+file_path_radiation_humiditiy_asc = 'data/4radiation_corr_ascend.csv'
+file_path_radiation_humiditiy_desc = 'data/4radiation_corr_descend.csv'
     
 # Example usage
-file_path_radiation_asc = '/Users/jakobdietz/Uni Leipzig/Bachelor Thesis/Gottschalk-Egerer_2021_AO2018/csv_split/4radiation_corr_ascend.csv'  # Replace with your file path for radiation data
-file_path_humidity_asc =  '/Users/jakobdietz/Uni Leipzig/Bachelor Thesis/Gottschalk-Egerer_2021_AO2018/csv_split/4radiation_corr_ascend.csv'  # Replace with your file path for humidity data
-file_path_radiation_desc ='/Users/jakobdietz/Uni Leipzig/Bachelor Thesis/Gottschalk-Egerer_2021_AO2018/csv_split/4radiation_corr_descend.csv'
-file_path_humidity_desc = '/Users/jakobdietz/Uni Leipzig/Bachelor Thesis/Gottschalk-Egerer_2021_AO2018/csv_split/4radiation_corr_descend.csv'
-calculate_and_plot(file_path_radiation_asc, file_path_humidity_asc, file_path_radiation_desc, file_path_humidity_desc)
+#file_path_radiation_asc = '/Users/jakobdietz/Uni Leipzig/Bachelor Thesis/Gottschalk-Egerer_2021_AO2018/csv_split/4radiation_corr_ascend.csv'  # Replace with your file path for radiation data
+#file_path_humidity_asc =  '/Users/jakobdietz/Uni Leipzig/Bachelor Thesis/Gottschalk-Egerer_2021_AO2018/csv_split/4radiation_corr_ascend.csv'  # Replace with your file path for humidity data
+#file_path_radiation_desc ='/Users/jakobdietz/Uni Leipzig/Bachelor Thesis/Gottschalk-Egerer_2021_AO2018/csv_split/4radiation_corr_descend.csv'
+#file_path_humidity_desc = '/Users/jakobdietz/Uni Leipzig/Bachelor Thesis/Gottschalk-Egerer_2021_AO2018/csv_split/4radiation_corr_descend.csv'
+calculate_and_plot(file_path_radiation_humiditiy_asc, file_path_radiation_humiditiy_desc)
