@@ -20,8 +20,6 @@ def calculate_and_plot(file_path_radiation_asc, file_path_radiation_desc):
     # Process second dataset (descend)
     radiation_avg2, humidity_avg2, mid_points2, start_date_desc, end_date_desc = process_data(file_path_radiation_desc)
 
-   
-
     # Visualization
     plt.figure(figsize=(20, 12))
 
@@ -80,9 +78,6 @@ def calculate_and_plot(file_path_radiation_asc, file_path_radiation_desc):
     plt.suptitle('Ascend and Descend Dataset 6', fontsize=16)
     plt.show()
     
-    
-    
-    
 def process_data(file_path_radiation):
     data = pd.read_csv(file_path_radiation)
     columns_radiation = ['LWD [W/m**2] (corrected)', 'SWD [W/m**2] (corrected)', 
@@ -101,14 +96,3 @@ def process_data(file_path_radiation):
                                               # (radiation_avg['SWD [W/m**2] (corrected)'] - radiation_avg['SWU [W/m**2] (corrected)'])                                 
     mid_points = np.array([(interval.left + interval.right) / 2 for interval in height_intervals])
     return radiation_avg, humidity_avg, mid_points, data['Date/Time'].iloc[0], data['Date/Time'].iloc[-1]
-
-
-file_path_radiation_humiditiy_asc = 'data/4radiation_corr_ascend.csv'
-file_path_radiation_humiditiy_desc = 'data/4radiation_corr_descend.csv'
-    
-# Example usage
-#file_path_radiation_asc = '/Users/jakobdietz/Uni Leipzig/Bachelor Thesis/Gottschalk-Egerer_2021_AO2018/csv_split/4radiation_corr_ascend.csv'  # Replace with your file path for radiation data
-#file_path_humidity_asc =  '/Users/jakobdietz/Uni Leipzig/Bachelor Thesis/Gottschalk-Egerer_2021_AO2018/csv_split/4radiation_corr_ascend.csv'  # Replace with your file path for humidity data
-#file_path_radiation_desc ='/Users/jakobdietz/Uni Leipzig/Bachelor Thesis/Gottschalk-Egerer_2021_AO2018/csv_split/4radiation_corr_descend.csv'
-#file_path_humidity_desc = '/Users/jakobdietz/Uni Leipzig/Bachelor Thesis/Gottschalk-Egerer_2021_AO2018/csv_split/4radiation_corr_descend.csv'
-calculate_and_plot(file_path_radiation_humiditiy_asc, file_path_radiation_humiditiy_desc)
